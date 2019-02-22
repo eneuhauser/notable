@@ -11,6 +11,7 @@ const Settings = new Store ({
   cwd: os.homedir (),
   defaults: {
     cwd: undefined,
+    flat: false,
     codemirror: {
       options: {
         lineWrapping: true

@@ -11,6 +11,7 @@ const Config = {
   get cwd () {
     return Settings.get ( 'cwd' );
   },
+  flat: Settings.get ( 'flat' ),
   attachments: {
     get path () {
       const cwd = Config.cwd;
@@ -23,7 +24,8 @@ const Config = {
   notes: {
     get path () {
       const cwd = Config.cwd;
-      return cwd ? path.join ( cwd, 'notes' ) : undefined;
+      const dir = Config.flat ? '.' : 'notes';
+      return cwd ? path.join ( cwd, dir ) : undefined;
     },
     glob: '**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,txt}',
     re: /\.(?:md|mkd|mdwn|mdown|markdown|markdn|mdtxt|mdtext|txt)$/,
